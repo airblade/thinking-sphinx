@@ -6,6 +6,7 @@ class ThinkingSphinx::Guard::File
   end
 
   def lock
+    ThinkingSphinx::Logger.log :guard, "Locking #{name} [pid #{Process.pid}]"
     FileUtils.touch path
   end
 
@@ -21,6 +22,7 @@ class ThinkingSphinx::Guard::File
   end
 
   def unlock
+    ThinkingSphinx::Logger.log :guard, "Unlocking #{name} [pid #{Process.pid}]"
     FileUtils.rm path
   end
 end

@@ -24,7 +24,7 @@ class ThinkingSphinx::Guard::Files
 
   def log_lock(file)
     ThinkingSphinx::Logger.log :guard,
-      "Guard file for index #{file.name} exists, not indexing: #{file.path}."
+      "Guard file for index #{file.name} exists, not indexing: #{file.path} [pid #{Process.pid}]."
   end
 
   def unlocked
